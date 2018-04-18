@@ -8,7 +8,7 @@ const onSocketConnect = io => socket => {
   // TODO 2.2 Prevent users from using an existing username using the "acknowledgement" from the client
   socket.on('LOGIN', ({username}, login) => {
     if (db.get(username)) {
-      if (typeof login === 'function') login(`{username} is taken.`);
+      if (typeof login === 'function') login(`${username} is taken.`);
     } else {
       logout = db.create(username, socket.id);
       // TODO 2.3 Emit an update user list event (eg "UPDATE_USER_LIST") to all clients when there is a login event
