@@ -1,5 +1,4 @@
 const db = require('./db');
-const io = require('socket.io')(server);
 
 const onSocketConnect = io => socket => {
 
@@ -19,10 +18,10 @@ const onSocketConnect = io => socket => {
 const connect = server => {
   // TODO 1.1 import socket.io
   // TODO 1.2 attach a socket to the express server by passing the express server instance as an argument when socket.io is invoked
-  // done at the top
+  const io = require('socket.io')(server);
 
   // TODO 1.3 listen for new connections and use the provided "onSocketConnect" function
-  io.on('connect', onSocketConnect(io);
+  io.on('connect', onSocketConnect(io));
 }
 
 module.exports = connect;
